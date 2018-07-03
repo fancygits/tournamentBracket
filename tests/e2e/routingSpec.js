@@ -49,4 +49,21 @@ describe('Routing Test', function () {
 		welcomePage.getTournamentLink().click();
 		expect(element(by.id('tournamentHeading')).getText()).toEqual("Tournament");
 	});
+
+	it('should navigate to the every Page', function() {
+		var welcomePage = new WelcomePage();
+		welcomePage.open();
+		welcomePage.getHomeLink().click();
+		expect(element(by.tagName('p')).getText()).toMatch(/Get started/);
+		welcomePage.getRegistrationLink().click();
+		expect(element(by.id('registrationHeading')).getText()).toEqual("Register Players");
+		welcomePage.getTournamentLink().click();
+		expect(element(by.id('tournamentHeading')).getText()).toEqual("Tournament");
+		welcomePage.getRegistrationLink().click();
+		expect(element(by.id('registrationHeading')).getText()).toEqual("Register Players");
+		welcomePage.getHomeLink().click();
+		expect(welcomePage.getWelcomeH2()).toEqual("Welcome");
+		element(by.linkText('registration')).click();
+		expect(element(by.id('registrationHeading')).getText()).toEqual("Register Players");
+	});
 });
