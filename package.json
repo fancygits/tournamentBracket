@@ -1,0 +1,32 @@
+{
+  "name": "brackets",
+  "version": "1.0.0",
+  "description": "A single-page application that seeds and runs a tournament bracket",
+  "main": "app/main.html",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "http-server": "^0.11.1"
+  },
+  "devDependencies": {
+    "jasmine-core": "^2.8.0",
+    "karma": "^2.0.2",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.1",
+    "karma-junit-reporter": "^1.2.0",
+    "protractor-html-screenshot-reporter": "0.0.21",
+    "puppeteer": "^1.4.0"
+  },
+  "scripts": {
+    "test": "karma start",
+    "e2e": "protractor protractor.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://lewisb42@bitbucket.org/lewisb42/brackets-angular.git"
+  },
+  "author": "Lewis Baumstark",
+  "license": "UNLICENSED",
+  "homepage": "https://bitbucket.org/lewisb42/brackets-angular#readme"
+}

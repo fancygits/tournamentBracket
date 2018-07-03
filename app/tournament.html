@@ -1,0 +1,39 @@
+
+ <h2 id='tournamentHeading'>Tournament</h2>
+
+ <div ng-show="ctrl.error" class="alert alert-danger" role="alert" id="error">
+   {{ctrl.error}}
+ </div>
+
+<h2 ng-show="ctrl.isTournamentComplete()" id="winner">Winner: {{ctrl.winner}}</h2>
+
+<form ng-show="!ctrl.isTournamentComplete()">
+    <h3 id="round">Round {{ctrl.round}}</h3>
+
+    <div ng-repeat="match in ctrl.bracket">
+      <h4>Match {{$index+1}}</h4>
+      <div class="form-check">
+        <input type="radio"
+          ng-model="ctrl.players[$index]"
+          value="{{ctrl.bracket[$index][0]}}" id="player0_{{$index}}">
+        <label for="player0_{{$index}}"
+          class="playerName">{{ctrl.bracket[$index][0]}}</label>
+      </div>
+
+      <div class="form-check">
+        <input type="radio"
+          ng-model="ctrl.players[$index]"
+          value="{{ctrl.bracket[$index][1]}}" id="player1_{{$index}}">
+        <label for="player1_{{$index}}"
+          class="playerName">{{ctrl.bracket[$index][1]}}</label>
+      </div>
+    </div>
+
+    <button ng-click="ctrl.completeThisRound()" id="completeThisRoundButton">Complete This Round</button>
+</form>
+
+<h4>Debug</h4>
+<ol>
+  <li>Players: {{ctrl.players}}</li>
+  <li>Bracket: {{ctrl.bracket}}</li>
+</ol>
