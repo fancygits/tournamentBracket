@@ -40,6 +40,14 @@ module.exports = {
 		element(by.id('submitRosterButton')).click();
 	},
 
+	addContestant: function(number, name) {
+		element(by.id('Contestant_' + number)).sendKeys(name);
+	},
+
+	submitRoster: function() {
+		element(by.id('submitRosterButton')).click();
+	},
+
 	getBracket: function() {
 		element(by.id('tournamentLink')).click();
 		return element.all(by.css('ol li')).last().getText();
