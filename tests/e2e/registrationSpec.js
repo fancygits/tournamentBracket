@@ -1,6 +1,6 @@
 var app = require('./bracketsE2EMethods.js');
 
-describe('Successful tournament run', function () {
+describe('Successful registration', function () {
 
 	it('should navigate to the Registration Page and fill register 8 contestants', function() {
 		app.open();
