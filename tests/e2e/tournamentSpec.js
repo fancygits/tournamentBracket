@@ -9,6 +9,7 @@ describe('Successful tournament', function () {
 		app.goToTournament();
 		app.selectPlayers(0,2,4,6);
 		app.finishRound();
+		expect(element(by.id('error')).isDisplayed()).toBe(false);
 		expect(app.getBracket()).toEqual('Bracket: [["Cyclops","Wolverine"],["Storm","Beast"]]');
 		expect(element(by.id('round')).getText()).toBe('Round 2');
 	});
@@ -20,7 +21,7 @@ describe('Successful tournament', function () {
 		app.goToTournament();
 		app.selectPlayer('Wolverine');
 		app.selectPlayer('Jean Grey');
-
+		expect(element(by.id('error')).isDisplayed()).toBe(false);
 		expect(app.getPlayers()).toEqual('Players: ["Jean Grey","Wolverine"]');
 		expect(element(by.id('round')).getText()).toBe('Round 1');
 	});
