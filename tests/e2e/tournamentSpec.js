@@ -51,4 +51,33 @@ describe('Successful tournament', function () {
 		expect(element(by.id('winner')).isDisplayed()).toBe(true);
 		expect(element(by.id('winner')).getText()).toBe('Winner: Wolverine');
 	});
+
+	it('should register 8 contestants, then complete tournament', function() {
+		app.open();
+		app.goToRegister();
+		app.registerNames(8);
+		app.goToTournament();
+		app.selectPlayers(1,3,5,7);
+		expect(app.getPlayers()).toEqual('Players: ["Jean Grey","Professor X","Iceman","Angel"]');
+		app.finishRound();
+		app.selectPlayers(1,2);
+		app.finishRound();
+		expect(app.getBracket()).toEqual('Bracket: [["Professor X","Iceman"]]');
+		app.selectPlayer('Professor X');
+		app.finishRound();
+		expect(element(by.id('winner')).isDisplayed()).toBe(true);
+		expect(element(by.id('winner')).getText()).toBe('Winner: Professor X');
+	});
+
+	it('should register 2 contestants, then complete the tournament', function() {
+		app.open();
+		app.goToRegister();
+		app.registerNames(2);
+		app.goToTournament();
+		app.selectPlayer('Jean Grey');
+		app.finishRound();
+		expect(app.getBracket()).toEqual('Bracket: [["Cyclops","Jean Grey"]]');
+		expect(element(by.id('winner')).isDisplayed()).toBe(true);
+		expect(element(by.id('winner')).getText()).toBe('Winner: Jean Grey');
+	});
 });
