@@ -7,14 +7,14 @@ module.exports = {
 	},
 
 	testNames: [
-		'Cyclops',
-		'Jean Grey',
-		'Wolverine',
-		'Professor X',
-		'Storm',
-		'Iceman',
-		'Beast',
-		'Angel'
+		'Cyclops', 		//0
+		'Jean Grey',	//1
+		'Wolverine',	//2
+		'Professor X',	//3
+		'Storm',		//4
+		'Iceman',		//5
+		'Beast',		//6
+		'Angel'			//7
 	],
 
 	open: function() {
@@ -40,9 +40,31 @@ module.exports = {
 		element(by.id('submitRosterButton')).click();
 	},
 
-	getContestants: function() {
+	getBracket: function() {
 		element(by.id('tournamentLink')).click();
-		return element.all(by.css('li')).last().getText();
+		return element.all(by.css('ol li')).last().getText();
 		browser.navigate().back();
+	},
+
+	getPlayers: function() {
+		element(by.id('tournamentLink')).click();
+		return element.all(by.css('ol li')).first().getText();
+		browser.navigate().back();
+	},
+
+	selectPlayer: function(contestant) {
+		element(by.css('input[value="' + contestant + '"]')).click();
+	},
+
+	selectPlayers: function(first, second, third, fourth) {
+		[first, second, third, fourth].forEach(function(item) {
+			if (item != undefined) {
+				element.all(by.css("input[type='radio']")).get(item).click();
+			}
+		});
+	},
+
+	finishRound: function() {
+		element(by.id('completeThisRoundButton')).click();
 	}
 };

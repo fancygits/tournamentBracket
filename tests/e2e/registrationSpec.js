@@ -7,7 +7,7 @@ describe('Successful registration', function () {
 		app.goToRegister();
 		app.registerNames(8);
 
-		expect(app.getContestants()).toEqual('Bracket: [["Cyclops","Jean Grey"],["Wolverine","Professor X"],["Storm","Iceman"],["Beast","Angel"]]');
+		expect(app.getBracket()).toEqual('Bracket: [["Cyclops","Jean Grey"],["Wolverine","Professor X"],["Storm","Iceman"],["Beast","Angel"]]');
 	});
 
 	it('should navigate to the Registration Page and fill register 2 contestants', function() {
@@ -15,7 +15,7 @@ describe('Successful registration', function () {
 		app.goToRegister();
 		app.registerNames(2);
 
-		expect(app.getContestants()).toEqual('Bracket: [["Cyclops","Jean Grey"]]');
+		expect(app.getBracket()).toEqual('Bracket: [["Cyclops","Jean Grey"]]');
 	});
 
 	it('should navigate to the Registration Page and fill register 4 contestants', function() {
@@ -23,6 +23,6 @@ describe('Successful registration', function () {
 		app.goToRegister();
 		app.registerNames(4);
 
-		expect(app.getContestants()).toEqual('Bracket: [["Cyclops","Jean Grey"],["Wolverine","Professor X"]]');
+		expect(app.getBracket()).toEqual('Bracket: [["Cyclops","Jean Grey"],["Wolverine","Professor X"]]');
 	});
 });
