@@ -2,3 +2,4 @@ node_modules/*
 .DS_Store
 
 HeadlessChrome*
+/HeadlessChrome_0.0.0_(Linux_0.0.0)/test-results.xml
